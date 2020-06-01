@@ -1,6 +1,7 @@
 <script>
 import AppFooter from './AppFooter.svelte'
 import AppHeader from './AppHeader.svelte'
+import t from '../i18n'
 </script>
 
 <style>
@@ -16,7 +17,7 @@ main {
 </style>
 
 <svelte:head>
-	<title>The Way</title>
+	<title>{t('appname')}</title>
 </svelte:head>
 
 <AppHeader />
