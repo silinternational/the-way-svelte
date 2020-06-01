@@ -64,9 +64,27 @@ Implemented a basic solution in `i18n/index.js`, example usage can be found in `
 
 > TODO: The current implementation does **NOT** currently support placeholders.
 
+### Import CSS
+Installed a plugin...
+```bash
+npm i -D rollup-plugin-postcss
+```
+
+...then updated the `rollup.config.js` config
+```js
+import postcss from 'rollup-plugin-postcss'
+...
+svelte({
+  emitCss: true,
+}),
+
+postcss({
+  extract: true,
+}),
+```
+...and then tweaked some code a little, find example usage in `main.js`
 
 ### TODO
-- [ ] import css
 - [ ] routing
   - [ ] external pkg
   - [ ] configs

@@ -1,6 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import livereload from 'rollup-plugin-livereload'
+import postcss from 'rollup-plugin-postcss'
 import resolve from '@rollup/plugin-node-resolve'
 import svelte from 'rollup-plugin-svelte'
 import { terser } from 'rollup-plugin-terser'
@@ -18,7 +19,7 @@ export default {
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,
-			css: css => css.write('public/build/bundle.css'), // exclude component css from bundle.js
+			emitCss: true, // give component style to postcss() for processing
 		}),
 
 		// If you have external dependencies installed from
@@ -33,6 +34,9 @@ export default {
 		commonjs(),
 
 		json(), // adds support for importing json files
+		postcss({
+			extract: true, // create a css file alongside the output.file
+		}),
 
 		//           minify     auto-refresh browser on changes
 		production ? terser() : livereload('public'),
