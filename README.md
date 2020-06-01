@@ -38,13 +38,30 @@ npm run build:prod
 ...then deploy contents of `public` to your host.
 
 ## Features
+These are the features already implemented, configured and ready to be used.
 
 ### Basic layout
 Implemented a stacked and centered `header`, `main` and "sticky" `footer` using `flex`
 
+### Import JSON
+Installed a plugin...
+```bash
+npm i -D @rollup/plugin-json
+```
+
+...then added it to `rollup.config.js`
+```js
+import json from '@rollup/plugin-json'
+...
+plugins: [
+  ...
+  json(),
+  ...
+]
+```
+
 ### TODO
 - [ ] import css
-- [ ] import json
 - [ ] i18n (custom implementation)
   - [ ] placeholder support
 - [ ] routing
