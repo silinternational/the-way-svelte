@@ -38,6 +38,11 @@ npm run build:prod
 ...then deploy contents of `public` to your host.
 
 ## Features
+
+### Basic layout
+Implemented a stacked and centered `header`, `main` and "sticky" `footer` using `flex`
+
+### TODO
 - [ ] import css
 - [ ] import json
 - [ ] i18n (custom implementation)
