@@ -113,8 +113,26 @@ plugins: [
 
 ...and then refactored the directory structure in accordance with Routify's convention.
 
+### Environment variables
+Installed a plugin...
+```bash
+npm i -D rollup-plugin-dotenv
+```
+
+...then updated the `rollup.config.js` config
+```js
+import { dotenv } from 'rollup-plugin-dotenv'
+...
+plugins: [
+  ...
+  dotenv(),
+  ...
+]
+```
+...then added vars to a `.env` file in the project root, see `pages/env.svelte` for example usage.
+> `.gitignore` was updated to ensure `.env` never gets committed since it might hold secret keys.  The correspoding `.env.example` is meant to hold supported vars but not necessarily the values unless a default value is not a secret.
+
 ### TODO
-- [ ] .env vars
 - [ ] Google analytics
 - [ ] sass in `.svelte` files
   - [ ] `@use`

@@ -1,4 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs'
+import dotenv from 'rollup-plugin-dotenv'
 import json from '@rollup/plugin-json'
 import livereload from 'rollup-plugin-livereload'
 import postcss from 'rollup-plugin-postcss'
@@ -39,6 +40,7 @@ export default {
 			extract: true, // create a css file alongside the output.file
 		}),
 		routify({}),
+		dotenv(),
 
 		//           minify     auto-refresh browser on changes
 		production ? terser() : livereload('public'),
