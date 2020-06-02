@@ -3,6 +3,7 @@ import json from '@rollup/plugin-json'
 import livereload from 'rollup-plugin-livereload'
 import postcss from 'rollup-plugin-postcss'
 import resolve from '@rollup/plugin-node-resolve'
+import { routify } from '@sveltech/routify'
 import svelte from 'rollup-plugin-svelte'
 import { terser } from 'rollup-plugin-terser'
 
@@ -37,6 +38,7 @@ export default {
 		postcss({
 			extract: true, // create a css file alongside the output.file
 		}),
+		routify({}),
 
 		//           minify     auto-refresh browser on changes
 		production ? terser() : livereload('public'),

@@ -74,20 +74,46 @@ npm i -D rollup-plugin-postcss
 ```js
 import postcss from 'rollup-plugin-postcss'
 ...
-svelte({
-  emitCss: true,
-}),
+plugins: [
+  ...
+  svelte({
+    emitCss: true,
+  }),
 
-postcss({
-  extract: true,
-}),
+  postcss({
+    extract: true,
+  }),
+  ...
+]
 ```
 ...and then tweaked some code a little, find example usage in `main.js`
 
+### Routing
+Installed a plugin...
+```bash
+npm i -D @sveltech/routify
+```
+
+...then updated the `rollup.config.js` config
+```js
+import { routify } from '@sveltech/routify'
+...
+plugins: [
+  ...
+  routify({}),
+  ...
+]
+```
+
+...and then added `--single` to the `"serve"` script in `package.json` to deal with URL Rewriting
+```
+    "serve": "sirv public --dev --single"
+```
+> ⚠️ URL-rewrite configs may be required on your host to ensure all requests are going through `index.html`, see https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa for an example on AWS.
+
+...and then refactored the directory structure in accordance with Routify's convention.
+
 ### TODO
-- [ ] routing
-  - [ ] external pkg
-  - [ ] configs
 - [ ] .env vars
 - [ ] Google analytics
 - [ ] sass in `.svelte` files
