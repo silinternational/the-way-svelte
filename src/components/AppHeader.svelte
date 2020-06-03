@@ -43,4 +43,5 @@ a:hover, .active {
   <a href={$url(`/param/${rng()}`)} class:active={$isActive('/param')}>param</a>
   <a href={$url('/qs?a=1&b=2&c=3&d=4&d=5')} class:active={$isActive('/qs')}>qs</a>
   <a href={$url('/env')} class:active={$isActive('/env')}>env</a>
+  <a href={$url('/sass')} class:active={$isActive('/sass')}>sass</a>
 </header>

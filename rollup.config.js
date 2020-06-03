@@ -3,6 +3,7 @@ import dotenv from 'rollup-plugin-dotenv'
 import json from '@rollup/plugin-json'
 import livereload from 'rollup-plugin-livereload'
 import postcss from 'rollup-plugin-postcss'
+import autoPreprocess from 'svelte-preprocess'
 import resolve from '@rollup/plugin-node-resolve'
 import { routify } from '@sveltech/routify'
 import svelte from 'rollup-plugin-svelte'
@@ -22,6 +23,7 @@ export default {
 			// enable run-time checks when not in production
 			dev: !production,
 			emitCss: true, // give component style to postcss() for processing
+			preprocess: autoPreprocess(),
 		}),
 
 		// If you have external dependencies installed from

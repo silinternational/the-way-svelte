@@ -137,11 +137,29 @@ Implemented a custom solution in `analytics/index.js`
 Example usage in `pages/_fallback.svelte`
 > `.env` would need a real analytics id to work obviously
 
+### SASS
+Installed some plugins...
+```bash
+npm i -D svelte-preprocess sass
+```
+
+...then updated the `rollup.config.js` config
+```js
+import autoPreprocess from 'svelte-preprocess'
+...
+plugins: [
+  svelte({
+    ...
+    preprocess: autoPreprocess(),
+    ...
+  }),
+  ...
+]
+```
+
+Example usage in `pages/sass.svelte`
+
 ### TODO
-- [ ] sass in `.svelte` files
-  - [ ] `@use`
-  - [ ] `@include`
-  - [ ] import scss (within `.js` files)
 - [ ] MDC
 - [ ] test
 - [ ] prod deployable
