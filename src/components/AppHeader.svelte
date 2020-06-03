@@ -41,6 +41,6 @@ a:hover, .active {
   <a href={$url('/home')} class:active={$isActive('/home')}>home</a>
   <a href={$url('/non-existent')} class:active={$isActive('/non-existent')}>non-existent</a>
   <a href={$url(`/param/${rng()}`)} class:active={$isActive('/param')}>param</a>
-  <a href={$url('/qs?a=1&b=2&c=3&d=4')} class:active={$isActive('/qs')}>qs</a>
+  <a href={$url('/qs?a=1&b=2&c=3&d=4&d=5')} class:active={$isActive('/qs')}>qs</a>
   <a href={$url('/env')} class:active={$isActive('/env')}>env</a>
 </header>
