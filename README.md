@@ -132,8 +132,12 @@ plugins: [
 ...then added vars to a `.env` file in the project root, see `pages/env.svelte` for example usage.
 > `.gitignore` was updated to ensure `.env` never gets committed since it might hold secret keys.  The correspoding `.env.example` is meant to hold supported vars but not necessarily the values unless a default value is not a secret.
 
+### Google analytics
+Implemented a custom solution in `analytics/index.js`
+Example usage in `pages/_fallback.svelte`
+> `.env` would need a real analytics id to work obviously
+
 ### TODO
-- [ ] Google analytics
 - [ ] sass in `.svelte` files
   - [ ] `@use`
   - [ ] `@include`

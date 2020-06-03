@@ -1,3 +1,4 @@
+import './analytics'
 import './components/global.css'
 import App from './components/App.svelte'
 
