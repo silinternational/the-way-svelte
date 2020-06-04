@@ -159,15 +159,22 @@ plugins: [
 
 Example usage in `pages/sass.svelte`
 
+### Backend
+Implemented a custom solution in `data/index.js`
+
+Update `.env` with a `BASE_API_URL`
+
+Example usage in `pages/backend.svelte`
+
 ### TODO
 - [ ] MDC
 - [ ] test
 - [ ] prod deployable
   - [ ] optimized `build`
   - [ ] cache busted assets
-- [ ] backend
+- [ ] authn
   - [ ] Bearer token api calls
-  - [ ] progress indication for api calls
+- [ ] progress indicator
 - [ ] error handling
   - [ ] client-side runtime, e.g., `x.nonExistent() => undefined (not a function)`
   - [ ] client-side validation, e.g., end date must not be before start date

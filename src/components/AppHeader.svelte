@@ -7,7 +7,7 @@ const rng = () => Math.floor(Math.random() * 1000) + 1
 <style>
 header {
   background-color: orange;
-  height: 4rem;
+  min-height: 4rem;
   width: 100%;
 
   display: flex;
@@ -44,4 +44,5 @@ a:hover, .active {
   <a href={$url('/qs?a=1&b=2&c=3&d=4&d=5')} class:active={$isActive('/qs')}>qs</a>
   <a href={$url('/env')} class:active={$isActive('/env')}>env</a>
   <a href={$url('/sass')} class:active={$isActive('/sass')}>sass</a>
+  <a href={$url('/backend')} class:active={$isActive('/backend')}>backend</a>
 </header>
