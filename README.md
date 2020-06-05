@@ -162,7 +162,7 @@ Example usage in `pages/sass.svelte`
 ### Backend
 Implemented a custom solution in `data/index.js`
 
-Update `.env` with a `BASE_API_URL`
+Update `.env` with a `API_HOST`
 
 Example usage in `pages/backend.svelte`
 

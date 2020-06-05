@@ -1,10 +1,10 @@
-export async function CREATE(url, body) { return await customFetch('post'  , url, body) }
-export async function GET   (url      ) { return await customFetch('get'   , url      ) }
-export async function UPDATE(url, body) { return await customFetch('put'   , url, body) }
-export async function DELETE(url      ) { return await customFetch('delete', url      ) }
+export async function CREATE(uri, body) { return await customFetch('post'  , uri, body) }
+export async function GET   (uri      ) { return await customFetch('get'   , uri      ) }
+export async function UPDATE(uri, body) { return await customFetch('put'   , uri, body) }
+export async function DELETE(uri      ) { return await customFetch('delete', uri      ) }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options
-async function customFetch(method, url, body) {
+async function customFetch(method, uri, body) {
   const headers = {
     'content-type': 'application/json',
   }
@@ -16,13 +16,18 @@ async function customFetch(method, url, body) {
   } else {
     body = JSON.stringify(body)
   }
-
-      method,
-      // credentials: 'include', // ensures the response back from the api will be allowed to "set-cookie"
-      headers,
-      body,
-    })
+  
+  const url = includesHost(uri) ? uri : `${process.env.API_HOST}/${uri}`
+  const response = await fetch(url, {
+    method,
+    // credentials: 'include', // ensures the response back from the api will be allowed to "set-cookie"
+    headers,
+    body,
+  })
+  
   return await response.json()
 }
+
+const includesHost = uri => uri.match(/(http[s]?:)?\/\//)
 
 export const upload = async formData => await customFetch('post', 'post', formData)
