@@ -1,4 +1,5 @@
 <script>
+import Error from './Error.svelte'
 import { url, isActive } from '@sveltech/routify'
 
 const rng = () => Math.floor(Math.random() * 1000) + 1
@@ -45,4 +46,7 @@ a:hover, .active {
   <a href={$url('/env')} class:active={$isActive('/env')}>env</a>
   <a href={$url('/sass')} class:active={$isActive('/sass')}>sass</a>
   <a href={$url('/backend')} class:active={$isActive('/backend')}>backend</a>
+  <a href={$url('/errorhandling')} class:active={$isActive('/errorhandling')}>errorhandling</a>
 </header>
+
+<Error />

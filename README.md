@@ -160,11 +160,11 @@ plugins: [
 Example usage in `pages/sass.svelte`
 
 ### Backend
-Implemented a custom solution in `data/index.js`
+Implemented a custom solution comprised of `error/index.js` & `components/Error.svelte`
 
-Update `.env` with a `API_HOST`
+Updated `.env` with a `API_HOST`
 
-Example usage in `pages/backend.svelte`
+Example usage in `pages/errorhandling.svelte`, `data/index.js`, `comppnents/AppHeader.svelte`
 
 ### TODO
 - [ ] MDC
@@ -175,11 +175,6 @@ Example usage in `pages/backend.svelte`
 - [ ] authn
   - [ ] Bearer token api calls
 - [ ] progress indicator
-- [ ] error handling
-  - [ ] client-side runtime, e.g., `x.nonExistent() => undefined (not a function)`
-  - [ ] client-side validation, e.g., end date must not be before start date
-  - [ ] HTTP non-200, i.e., handled with messages (keyed for i18n)
-  - [ ] HTTP non-200, e.g., backend call with no `try-catch`
 - [ ] local storage
 - [ ] service worker
   - [ ] cached/offline for app assets

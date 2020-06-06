@@ -1,3 +1,5 @@
+import { throwError } from '../error'
+
 export async function CREATE(uri, body) { return await customFetch('post'  , uri, body) }
 export async function GET   (uri      ) { return await customFetch('get'   , uri      ) }
 export async function UPDATE(uri, body) { return await customFetch('put'   , uri, body) }
@@ -25,6 +27,11 @@ async function customFetch(method, uri, body) {
     body,
   })
   
+  // reminder: does not throw exceptions for non-200 responses (https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
+  if (! response.ok) {
+    throwError(response.statusText, response.status)
+  }
+
   return await response.json()
 }
 
