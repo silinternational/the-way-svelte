@@ -5,6 +5,9 @@ export async function GET   (uri      ) { return await customFetch('get'   , uri
 export async function UPDATE(uri, body) { return await customFetch('put'   , uri, body) }
 export async function DELETE(uri      ) { return await customFetch('delete', uri      ) }
 
+// https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData
+export const upload = async formData => await CREATE('post', formData)
+
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options
 async function customFetch(method, uri, body) {
   const headers = {
@@ -36,5 +39,3 @@ async function customFetch(method, uri, body) {
 }
 
 const includesHost = uri => uri.match(/(http[s]?:)?\/\//)
-
-export const upload = async formData => await customFetch('post', 'post', formData)
