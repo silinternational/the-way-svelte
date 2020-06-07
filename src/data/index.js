@@ -1,4 +1,5 @@
 import { throwError } from '../error'
+import { start, stop } from '../components/progress'
 
 export async function CREATE(uri, body) { return await customFetch('post'  , uri, body) }
 export async function GET   (uri      ) { return await customFetch('get'   , uri      ) }
@@ -23,12 +24,19 @@ async function customFetch(method, uri, body) {
   }
   
   const url = includesHost(uri) ? uri : `${process.env.API_HOST}/${uri}`
-  const response = await fetch(url, {
-    method,
-    // credentials: 'include', // ensures the response back from the api will be allowed to "set-cookie"
-    headers,
-    body,
-  })
+  let response = {}
+  try {
+    start(url)
+
+    response = await fetch(url, {
+      method,
+      // credentials: 'include', // ensures the response back from the api will be allowed to "set-cookie"
+      headers,
+      body,
+    })
+  } finally {
+    stop(url)
+  }
   
   // reminder: does not throw exceptions for non-200 responses (https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
   if (! response.ok) {

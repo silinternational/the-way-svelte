@@ -166,6 +166,11 @@ Updated `.env` with a `API_HOST`
 
 Example usage in `pages/errorhandling.svelte`, `data/index.js`, `comppnents/AppHeader.svelte`
 
+### Progress indicator
+Implemented a custom solution in `components/progress`
+
+Example usage in `pages/progress.svelte`, `data/index.js`, `comppnents/AppHeader.svelte`
+
 ### TODO
 - [ ] MDC
 - [ ] test
@@ -174,7 +179,6 @@ Example usage in `pages/errorhandling.svelte`, `data/index.js`, `comppnents/AppH
   - [ ] cache busted assets
 - [ ] authn
   - [ ] Bearer token api calls
-- [ ] progress indicator
 - [ ] local storage
 - [ ] service worker
   - [ ] cached/offline for app assets

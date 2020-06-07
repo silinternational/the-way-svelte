@@ -1,6 +1,7 @@
 <script>
 import Error from './Error.svelte'
 import { url, isActive } from '@sveltech/routify'
+import Progress from './progress/Progress.svelte'
 
 const rng = () => Math.floor(Math.random() * 1000) + 1
 </script>
@@ -47,6 +48,8 @@ a:hover, .active {
   <a href={$url('/sass')} class:active={$isActive('/sass')}>sass</a>
   <a href={$url('/backend')} class:active={$isActive('/backend')}>backend</a>
   <a href={$url('/errorhandling')} class:active={$isActive('/errorhandling')}>errorhandling</a>
+  <a href={$url('/progress')} class:active={$isActive('/progress')}>progress</a>
 </header>
 
 <Error />
+<Progress />
