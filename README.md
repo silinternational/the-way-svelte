@@ -169,7 +169,7 @@ Example usage in `pages/errorhandling.svelte`, `data/index.js`, `comppnents/AppH
 ### Progress indicator
 Implemented a custom solution in `components/progress`
 
-Example usage in `pages/progress.svelte`, `data/index.js`, `comppnents/AppHeader.svelte`
+Example usage in `pages/progress.svelte`, `data/index.js`, `components/AppHeader.svelte`
 
 ### TODO
 - [ ] MDC
