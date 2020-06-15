@@ -62,7 +62,7 @@ plugins: [
 ### i18n
 Implemented a basic solution in `i18n/index.js`, example usage can be found in `App.svelte` for the `title`.
 
-> TODO: The current implementation does **NOT** currently support placeholders.
+> TODO: The current implementation does **NOT** support placeholders (at this time).
 
 ### Import CSS
 Installed a plugin...
