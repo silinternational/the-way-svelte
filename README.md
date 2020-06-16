@@ -33,7 +33,7 @@ Build the optimized app...
 npm run build:prod
 ```
 
-...then deploy contents of `public` to your host.
+...then deploy contents of `dist` to your host.
 
 ## Features
 These are the features already implemented, configured and ready to be used.
@@ -105,7 +105,7 @@ plugins: [
 
 ...and then added `--single` to the `"serve"` script in `package.json` to deal with URL Rewriting
 ```
-    "serve": "sirv public --dev --host 0.0.0.0 --single"
+    "serve": "sirv dist --dev --host 0.0.0.0 --single"
 ```
 > ⚠️ URL-rewrite configs may be required on your host to ensure all requests are going through `index.html`, see https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa for an example on AWS.
 
@@ -174,12 +174,35 @@ Implemented a custom solution in `components/progress`
 
 Example usage in `pages/progress.svelte`, `data/index.js`, `components/AppHeader.svelte`
 
+### Cache-bust bundled assets
+Installed a plugin...
+```bash
+npm i -D rollup-plugin-generate-html-template
+```
+> NOTE: currently using a forked version so bundled css gets cache-busted TODO: needs to be updated when PR's are merged
+
+...then updated the `rollup.config.js` config
+```js
+import htmlTemplate from 'rollup-plugin-generate-html-template'
+...
+export default {
+	input: 'src/main.js',
+	output: {
+		file: `dist/bundle.${Date.now()}.js`, // cache bust
+...
+  plugins: [
+    ...
+		// injects bundled assets into distributable index.html, needed to do this at build time for cache busting
+    htmlTemplate({
+      template: 'src/index.html',
+    }),
+    ...
+```
+...also updated the project structure slightly and made the corresponding tweaks to npm scripts in `package.json`
+
 ### TODO
 - [ ] MDC
 - [ ] test
-- [ ] prod deployable
-  - [ ] optimized `build`
-  - [ ] cache busted assets
 - [ ] authn
   - [ ] Bearer token api calls
 - [ ] local storage

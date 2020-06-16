@@ -1,9 +1,10 @@
+import autoPreprocess from 'svelte-preprocess'
 import commonjs from '@rollup/plugin-commonjs'
 import dotenv from 'rollup-plugin-dotenv'
+import htmlTemplate from 'rollup-plugin-generate-html-template'
 import json from '@rollup/plugin-json'
 import livereload from 'rollup-plugin-livereload'
 import postcss from 'rollup-plugin-postcss'
-import autoPreprocess from 'svelte-preprocess'
 import resolve from '@rollup/plugin-node-resolve'
 import { routify } from '@sveltech/routify'
 import svelte from 'rollup-plugin-svelte'
@@ -14,9 +15,9 @@ const production = !process.env.ROLLUP_WATCH
 export default {
 	input: 'src/main.js',
 	output: {
-		file: 'public/build/bundle.js',
+		file: `dist/bundle.${Date.now()}.js`, // cache bust
 		format: 'iife',
-		sourcemap: true,
+		sourcemap: production,
 	},
 	plugins: [
 		svelte({
@@ -40,14 +41,20 @@ export default {
 		json(), // adds support for importing json files
 		postcss({
 			extract: true, // create a css file alongside the output.file
+			sourceMap: production,
 		}),
 		routify({}),
 		dotenv(),
 
 		//           minify     auto-refresh browser on changes
-		production ? terser() : livereload('public'),
+		production ? terser() : livereload('dist'),
+
+		// injects bundled assets into distributable index.html, needed to do this at build time for cache busting
+		htmlTemplate({
+      template: 'src/index.html',
+		}),
 	],
 	watch: {
-		clearScreen: false
+		clearScreen: false,
 	}
 }

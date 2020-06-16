@@ -1,4 +1,5 @@
 /node_modules/
-/public/build/
+/dist/bundle*
+/dist/index.html
 .env
 .DS_Store

@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "scripts": {
     "build:dev": "rollup -c -w",
+    "prebuild:prod": "npm run clean:build",
     "build:prod": "rollup -c",
     "clean": "run-p -l clean:build clean:deps",
-    "clean:build": "rimraf public/build/*",
+    "clean:build": "rimraf dist/index.html dist/bundle*",
     "clean:deps": "npm prune",
     "local:dev": "run-p -l build:dev serve",
     "local:prod": "run-p -l build:prod serve",
-    "serve": "sirv public --dev --host 0.0.0.0 --single"
+    "serve": "sirv dist --dev --host 0.0.0.0 --single"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^12.0.0",
@@ -21,6 +22,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.3.4",
     "rollup-plugin-dotenv": "^0.3.0",
+    "rollup-plugin-generate-html-template": "git+ssh://git@github.com:snellcode/rollup-plugin-generate-html-template.git#dist",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-postcss": "^3.1.1",
     "rollup-plugin-svelte": "^5.0.3",
