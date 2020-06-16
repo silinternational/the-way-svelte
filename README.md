@@ -15,14 +15,12 @@ npm run local:dev
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running app _(configured to auto-reload page for any changes)_
 
-> By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
 ### Running in prod mode
 ```bash
 npm run local:prod
 ```
 
-> this mode will not auto-reload when making changes in `src`
+> this mode will *not* auto-reload when making changes in `src`
 
 ### Clean up
 ```bash
@@ -107,7 +105,7 @@ plugins: [
 
 ...and then added `--single` to the `"serve"` script in `package.json` to deal with URL Rewriting
 ```
-    "serve": "sirv public --dev --single"
+    "serve": "sirv public --dev --host 0.0.0.0 --single"
 ```
 > ⚠️ URL-rewrite configs may be required on your host to ensure all requests are going through `index.html`, see https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa for an example on AWS.
 
