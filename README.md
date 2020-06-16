@@ -160,11 +160,16 @@ plugins: [
 Example usage in `pages/sass.svelte`
 
 ### Backend
+Implemented a custom solution in `data/index.js`
+
+Updated `.env` with an `API_HOST`
+
+Example usage in `pages/backend.svelte`
+
+### Error handling
 Implemented a custom solution comprised of `error/index.js` & `components/Error.svelte`
 
-Updated `.env` with a `API_HOST`
-
-Example usage in `pages/errorhandling.svelte`, `data/index.js`, `comppnents/AppHeader.svelte`
+Example usage in `pages/errorhandling.svelte`, `data/index.js`, `components/AppHeader.svelte`
 
 ### Progress indicator
 Implemented a custom solution in `components/progress`
