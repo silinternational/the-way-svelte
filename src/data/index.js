@@ -38,7 +38,7 @@ async function customFetch(method, uri, body) {
     stop(url)
   }
   
-  // reminder: does not throw exceptions for non-200 responses (https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
+  // reminder: fetch does not throw exceptions for non-200 responses (https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
   if (! response.ok) {
     throwError(response.statusText, response.status)
   }
