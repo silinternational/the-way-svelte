@@ -228,10 +228,10 @@ export default {
 ```html
 <body>
   ...
-	<script>
-		'serviceWorker' in navigator && window.addEventListener('load', navigator.serviceWorker.register('/service-worker.js'))
-	</script>
-	...
+  <script>
+    'serviceWorker' in navigator && window.addEventListener('load', navigator.serviceWorker.register('/service-worker.js'))
+  </script>
+  ...
 </body>
 
 ```
