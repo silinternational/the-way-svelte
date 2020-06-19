@@ -1,7 +1,7 @@
 # The way I like my Svelte
 The Svelte starter template I _used to_ wish existed for all of my previous projects!
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+> You will need [Node.js](https://nodejs.org) installed.
 
 ## Local development
 Install the dependencies...
