@@ -17,6 +17,10 @@ const tests = {
       info: 'form validation',
       test: () => throwError('sorry, that password has been pwned...please try another'),
     },
+    {
+      info: 'unhandled in <code>{#await ...}</code>',
+      test: () => runAwaitTest = true,
+    },
   ],
   backend: [
     {
@@ -28,6 +32,8 @@ const tests = {
 }
 
 const filterTestsType = type => tests.filter(test => test.type === type)
+
+let runAwaitTest = false
 
 $: $route && dismiss()
 </script>
@@ -47,7 +53,13 @@ button {
   <h1>{type}</h1>
   <ul>
     {#each tests[type] as {info, test}}
-      <li>{info} <button on:click={test} title="generate error">▶︎</button></li>
+      <li>{@html info} <button on:click={test} title="generate error">▶︎</button></li>
     {/each}
   </ul>
 {/each}
+
+{#if runAwaitTest}
+  {#await GET('status/500')}
+    Ensures `unhandledrejection` is handled consistently, even inside `#await`
+  {/await}
+{/if}

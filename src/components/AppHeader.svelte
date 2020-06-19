@@ -51,5 +51,6 @@ a:hover, .active {
   <a href={$url('/progress')} class:active={$isActive('/progress')}>progress</a>
 </header>
 
-<Error />
 <Progress />
+
+<Error />

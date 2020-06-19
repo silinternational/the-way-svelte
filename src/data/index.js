@@ -34,6 +34,12 @@ async function customFetch(method, uri, body) {
       headers,
       body,
     })
+  } catch (e) {
+    // these only occur for network errors, like these:
+    //     request made with a bad host, e.g., //httpbin
+    //     the host is refusing connections
+    //     client is offline, i.e., airplane mode or something
+    throwError(e)
   } finally {
     stop(url)
   }
