@@ -39,11 +39,12 @@ async function customFetch(method, uri, body) {
     //     request made with a bad host, e.g., //httpbin
     //     the host is refusing connections
     //     client is offline, i.e., airplane mode or something
+    //     CORS preflight failures
     throwError(e)
   } finally {
     stop(url)
   }
-  
+
   // reminder: fetch does not throw exceptions for non-200 responses (https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
   if (! response.ok) {
     throwError(response.statusText, response.status)
@@ -52,4 +53,11 @@ async function customFetch(method, uri, body) {
   return await response.json()
 }
 
-const includesHost = uri => uri.match(/(http[s]?:)?\/\//)
+// matches:
+//    http://example.com
+//    https://example.com
+//    //example.com
+// not these:
+//    redirect-to?url=//example.org/home?abc=123
+//    redirect-to?url=https://example.org/home?abc=123
+const includesHost = uri => uri.match(/^(?:https?:)?\/\//)
