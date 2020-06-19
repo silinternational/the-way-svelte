@@ -249,7 +249,7 @@ export default {
 1. `mkcert -install`
 1. `mkcert -key-file key.pem -cert-file cert.pem localhost`
 
-...then add to `serve:https` where desired in the `package.json`, e.g., `"local:dev": "run-p -l build:dev serve:http serve:https"`.  App can then be run at http://localhost:8080 and/or https://localhost:8443.
+...then add `serve:https` where desired in the `package.json`, e.g., `"local:dev": "run-p -l build:dev serve:http serve:https"` (app can then be run at http://localhost:8080 and https://localhost:8443 after doing this)
 
 > NOTE: can't test the installability of the app from your phone on the same network because the cert that enables the required https doesn't have an certificate authority on the phone, only on your dev machine, however an `ngrok` approach should still be an option.
 
