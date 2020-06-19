@@ -5,4 +5,6 @@ import { onMount } from 'svelte'
 onMount(notFound)
 </script>
 
-unknown route
+<p>
+  unknown route
+</p>

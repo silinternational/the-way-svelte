@@ -1,4 +1,7 @@
 <script>
 export let number
 </script>
-got it: {number}
+
+<p>
+  got it: {number}
+</p>
