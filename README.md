@@ -265,3 +265,4 @@ export default {
 - [ ] local storage
 - [ ] mobile view
 - [ ] nav menu (with hamburger on mobile)
+- [ ] Dockerize
