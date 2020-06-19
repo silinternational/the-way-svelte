@@ -13,7 +13,7 @@ npm i
 npm run local:dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running app _(configured to auto-reload page for any changes)_
+Navigate to [localhost:8080](http://localhost:8080). You should see your app running app _(configured to auto-reload page for any changes)_
 
 ### Running in prod mode
 ```bash
@@ -36,7 +36,6 @@ npm run build:prod
 ...then deploy contents of `dist` to your host.
 
 ## Features
-These are the features already implemented, configured and ready to be used.
 
 ### Basic layout
 Implemented a stacked and centered `header`, `main` and "sticky" `footer` using `flex`
@@ -103,10 +102,7 @@ plugins: [
 ]
 ```
 
-...and then added `--single` to the `"serve"` script in `package.json` to deal with URL Rewriting
-```
-    "serve": "sirv dist --dev --host 0.0.0.0 --single"
-```
+...and then added `--single` to the `"serve"` scripts in `package.json` to deal with URL Rewriting
 > ⚠️ URL-rewrite configs may be required on your host to ensure all requests are going through `index.html`, see https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa for an example on AWS.
 
 ...and then refactored the directory structure in accordance with Routify's convention.
@@ -174,7 +170,10 @@ Implemented a custom solution in `components/progress`
 
 Example usage in `pages/progress.svelte`, `data/index.js`, `components/AppHeader.svelte`
 
-### Cache-bust bundled assets
+### Cache-bust bundled assets <span style="color: red">(deprecated)</span>
+
+> <span style="color: red">**ALERT:**</span> with the introduction of a service worker this is not needed anymore because assets will automatically be revved/managed by the service worker via client's browser cache storage.
+
 Installed a plugin...
 ```bash
 npm i -D rollup-plugin-generate-html-template
@@ -200,13 +199,66 @@ export default {
 ```
 ...also updated the project structure slightly and made the corresponding tweaks to npm scripts in `package.json`
 
+### Service worker
+
+Installed a plugin...
+```bash
+npm i -D rollup-plugin-workbox
+```
+
+... then updated the `rollup.config.js` config
+```js
+import { generateSW } from 'rollup-plugin-workbox'
+...
+export default {
+  plugins: [
+    ...
+    generateSW({
+			swDest: 'dist/service-worker.js',
+			globDirectory: 'dist',
+			globPatterns: ['*.{css,html,js,json,png}'],
+		}),
+    ...
+  ]
+```
+
+... then added some favicons in `dist/favicons` and a `manifest.json`
+
+... then tweaked `dist/index.html` to register the service worker
+```html
+<body>
+  ...
+	<script>
+		'serviceWorker' in navigator && window.addEventListener('load', navigator.serviceWorker.register('/service-worker.js'))
+	</script>
+	...
+</body>
+
+```
+
+> NOTE: removed previous approach to cache-busting assets since workbox's service worker already manages all of that.
+
+#### Refs
+* https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
+* https://developers.google.com/web/tools/workbox
+
+
+#### Local HTTPS
+1. install https://github.com/FiloSottile/mkcert (`brew install mkcert` for macOS)
+1. `mkcert -install`
+1. `mkcert -key-file key.pem -cert-file cert.pem localhost`
+
+...then add to `serve:https` where desired in the `package.json`, e.g., `"local:dev": "run-p -l build:dev serve:http serve:https"`.  App can then be run at http://localhost:8080 and/or https://localhost:8443.
+
+> NOTE: can't test the installability of the app from your phone on the same network because the cert that enables the required https doesn't have an certificate authority on the phone, only on your dev machine, however an `ngrok` approach should still be an option.
+
+#### Google Analytics (offline)
+#### Backend data (offline)
+#### Notifications
+
 ### TODO
 - [ ] MDC
 - [ ] test
 - [ ] authn
   - [ ] Bearer token api calls
 - [ ] local storage
-- [ ] service worker
-  - [ ] cached/offline for app assets
-  - [ ] cached/offline for backend data
-  - [ ] notifications

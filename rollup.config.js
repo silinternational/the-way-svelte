@@ -1,7 +1,6 @@
 import autoPreprocess from 'svelte-preprocess'
 import commonjs from '@rollup/plugin-commonjs'
 import dotenv from 'rollup-plugin-dotenv'
-import htmlTemplate from 'rollup-plugin-generate-html-template'
 import json from '@rollup/plugin-json'
 import livereload from 'rollup-plugin-livereload'
 import postcss from 'rollup-plugin-postcss'
@@ -9,13 +8,14 @@ import resolve from '@rollup/plugin-node-resolve'
 import { routify } from '@sveltech/routify'
 import svelte from 'rollup-plugin-svelte'
 import { terser } from 'rollup-plugin-terser'
+import { generateSW } from 'rollup-plugin-workbox'
 
 const production = !process.env.ROLLUP_WATCH
 
 export default {
 	input: 'src/main.js',
 	output: {
-		file: `dist/bundle.${Date.now()}.js`, // cache bust
+		file: 'dist/bundle.js',
 		format: 'iife',
 		sourcemap: production,
 	},
@@ -49,9 +49,11 @@ export default {
 		//           minify     auto-refresh browser on changes
 		production ? terser() : livereload('dist'),
 
-		// injects bundled assets into distributable index.html, needed to do this at build time for cache busting
-		htmlTemplate({
-      template: 'src/index.html',
+		// https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build#.generateSW
+		generateSW({
+			swDest: 'dist/service-worker.js',
+			globDirectory: 'dist',
+			globPatterns: ['*.{css,html,js,json,png}'],
 		}),
 	],
 	watch: {

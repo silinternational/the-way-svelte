@@ -1,5 +1,13 @@
-/node_modules/
-/dist/bundle*
-/dist/index.html
+# secrets
 .env
-.DS_Store
+
+# build files
+dist/bundle*
+dist/service-worker*
+dist/workbox*
+
+# deps
+node_modules
+
+# cert for https
+*.pem

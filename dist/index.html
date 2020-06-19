@@ -7,8 +7,14 @@
 	<title>Svelte app</title>
 	
 	<link rel='icon' type='image/png' href='/favicon.png'>
+
+	<link rel="stylesheet" href="/bundle.css">
 </head>
 
 <body>
+	<script>
+		'serviceWorker' in navigator && window.addEventListener('load', navigator.serviceWorker.register('/service-worker.js'))
+	</script>
+	<script src="/bundle.js"></script>
 </body>
 </html>
