@@ -1,5 +1,6 @@
 import { throwError } from '../error'
 import { start, stop } from '../components/progress'
+import { getToken } from '../authn/token'
 
 export async function CREATE(uri, body) { return await customFetch('post'  , uri, body) }
 export async function GET   (uri      ) { return await customFetch('get'   , uri      ) }
@@ -12,6 +13,7 @@ export const upload = async formData => await CREATE('post', formData)
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options
 async function customFetch(method, uri, body) {
   const headers = {
+    authorization: `Bearer ${getToken()}`,
     'content-type': 'application/json',
   }
 
@@ -30,7 +32,7 @@ async function customFetch(method, uri, body) {
 
     response = await fetch(url, {
       method,
-      // credentials: 'include', // ensures the response back from the api will be allowed to "set-cookie"
+      credentials: 'include', // ensures the response back from the api will be allowed to "set-cookie"
       headers,
       body,
     })

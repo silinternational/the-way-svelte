@@ -201,7 +201,6 @@ export default {
 ...also updated the project structure slightly and made the corresponding tweaks to npm scripts in `package.json`
 
 ### Service worker
-
 Installed a plugin...
 ```bash
 npm i -D rollup-plugin-workbox
@@ -239,6 +238,8 @@ export default {
 
 > NOTE: removed previous approach to cache-busting assets since workbox's service worker already manages all of that.
 
+> TODO: https://stackoverflow.com/questions/42491242/rewrite-url-offline-when-using-a-service-worker (getting error when refresh /home while offline)
+
 #### Refs
 * https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
 * https://developers.google.com/web/tools/workbox
@@ -257,12 +258,18 @@ export default {
 #### Backend data (offline)
 #### Notifications
 
+### Authentication
+Implemented a basic "Bearer token" implementation in `authn` module.  Example usage in `pages/login.svelte`,`pages/home.svelte` and `pages/logged-out.svelte`
+
+TODO: dummy up a "user" store to demonstrate loading and clearing of a a user's info as well as "guarded" routes, i.e., routes that require authentication.
+TODO: implement `401` handling in `data/index.js`
+
+
 ### TODO
 - [ ] MDC
 - [ ] test
-- [ ] authn
-  - [ ] Bearer token api calls
 - [ ] local storage
 - [ ] mobile view
 - [ ] nav menu (with hamburger on mobile)
 - [ ] Dockerize
+- [ ] Typescript
