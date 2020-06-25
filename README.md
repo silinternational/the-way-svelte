@@ -268,7 +268,6 @@ TODO: implement `401` handling in `data/index.js`
 ### TODO
 - [ ] MDC
 - [ ] test
-- [ ] local storage
 - [ ] mobile view
 - [ ] nav menu (with hamburger on mobile)
 - [ ] Dockerize
