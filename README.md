@@ -240,9 +240,10 @@ export default {
   plugins: [
     ...
     generateSW({
-			swDest: 'dist/service-worker.js',
 			globDirectory: 'dist',
 			globPatterns: ['*.{css,html,js,json,png}'],
+			navigateFallback: 'index.html',
+			swDest: 'dist/service-worker.js',
 		}),
     ...
   ]
