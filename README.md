@@ -251,8 +251,15 @@ export default {
 
 ... then added some favicons in `dist/favicons` and a `manifest.json`
 
-... then tweaked `dist/index.html` to register the service worker
+... then tweaked `dist/index.html` to register the service worker and link in the favicons/manifest.
 ```html
+<head>
+  ...
+	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel="manifest" href="/manifest.json">
+  ...
+</head>
+
 <body>
   ...
   <script>
