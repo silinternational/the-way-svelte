@@ -54,6 +54,7 @@ export default {
 			globDirectory: 'dist',
 			globPatterns: ['*.{css,html,js,json,png}'],
 			navigateFallback: 'index.html',
+			offlineGoogleAnalytics: true,
 			swDest: 'dist/service-worker.js',
 		}),
 	],

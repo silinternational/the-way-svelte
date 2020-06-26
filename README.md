@@ -280,6 +280,15 @@ export default {
 > NOTE: can't test the installability of the app from your phone on the same network because the cert that enables the required https doesn't have an certificate authority on the phone, only on your dev machine, however an `ngrok` approach should still be an option.
 
 #### Google Analytics (offline)
+updated the `rollup.config.js` config
+```js
+    generateSW({
+      ...
+			offlineGoogleAnalytics: true,
+      ...
+		}),
+```
+
 #### Backend data (offline)
 #### Notifications
 
