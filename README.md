@@ -264,8 +264,6 @@ export default {
 
 > NOTE: removed previous approach to cache-busting assets since workbox's service worker already manages all of that.
 
-> TODO: https://stackoverflow.com/questions/42491242/rewrite-url-offline-when-using-a-service-worker (getting error when refresh /home while offline)
-
 #### Refs
 * https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
 * https://developers.google.com/web/tools/workbox

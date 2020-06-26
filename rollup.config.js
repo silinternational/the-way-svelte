@@ -54,6 +54,7 @@ export default {
 			swDest: 'dist/service-worker.js',
 			globDirectory: 'dist',
 			globPatterns: ['*.{css,html,js,json,png}'],
+			navigateFallback: 'index.html',
 		}),
 	],
 	watch: {
