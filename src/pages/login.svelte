@@ -1,6 +1,6 @@
 <script>
-import { getSeed } from '../authn/token'
 import { login } from '../authn'
+import { getSeed } from '../authn/token'
 </script>
 
 <p>

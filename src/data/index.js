@@ -1,6 +1,6 @@
-import { throwError } from '../error'
-import { start, stop } from '../components/progress'
 import { getToken } from '../authn/token'
+import { start, stop } from '../components/progress'
+import { throwError } from '../error'
 
 export async function CREATE(uri, body) { return await customFetch('post'  , uri, body) }
 export async function GET   (uri      ) { return await customFetch('get'   , uri      ) }

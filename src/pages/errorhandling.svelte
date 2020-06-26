@@ -1,7 +1,7 @@
 <script>
 import { GET } from '../data'
-import { route } from '@sveltech/routify'
 import { throwError, dismiss } from '../error'
+import { route } from '@sveltech/routify'
 
 const tests = {
   client: [

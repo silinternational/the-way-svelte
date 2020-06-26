@@ -1,14 +1,14 @@
-import autoPreprocess from 'svelte-preprocess'
 import commonjs from '@rollup/plugin-commonjs'
-import dotenv from 'rollup-plugin-dotenv'
 import json from '@rollup/plugin-json'
+import resolve from '@rollup/plugin-node-resolve'
+import dotenv from 'rollup-plugin-dotenv'
 import livereload from 'rollup-plugin-livereload'
 import postcss from 'rollup-plugin-postcss'
-import resolve from '@rollup/plugin-node-resolve'
-import { routify } from '@sveltech/routify'
 import svelte from 'rollup-plugin-svelte'
 import { terser } from 'rollup-plugin-terser'
 import { generateSW } from 'rollup-plugin-workbox'
+import { routify } from '@sveltech/routify'
+import autoPreprocess from 'svelte-preprocess'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -51,10 +51,10 @@ export default {
 
 		// https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build#.generateSW
 		generateSW({
-			swDest: 'dist/service-worker.js',
 			globDirectory: 'dist',
 			globPatterns: ['*.{css,html,js,json,png}'],
 			navigateFallback: 'index.html',
+			swDest: 'dist/service-worker.js',
 		}),
 	],
 	watch: {

@@ -1,7 +1,7 @@
 <script>
 import Error from './Error.svelte'
-import { url, isActive } from '@sveltech/routify'
 import Progress from './progress/Progress.svelte'
+import { url, isActive } from '@sveltech/routify'
 
 const rng = () => Math.floor(Math.random() * 1000) + 1
 </script>

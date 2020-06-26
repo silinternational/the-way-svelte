@@ -1,6 +1,6 @@
 <script>
-import { GET } from '../data'
 import { start, stop } from '../components/progress'
+import { GET } from '../data'
 
 const buildRandomCallDb = numCalls => {
   const db = []
