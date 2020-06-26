@@ -154,6 +154,32 @@ plugins: [
 
 Example usage in `pages/sass.svelte`
 
+### Typescript
+#### Inside .svelte files only
+Installed some plugins...
+```bash
+npm i -D svelte-preprocess typescript
+```
+
+...then updated the `rollup.config.js` config
+```js
+import autoPreprocess from 'svelte-preprocess'
+...
+plugins: [
+  svelte({
+    ...
+    preprocess: autoPreprocess(),
+    ...
+  }),
+  ...
+]
+```
+
+Example usage in `pages/index.svelte`
+
+#### Inside the project (excluding .svelte files)
+> TODO: Add support for typescript inside any `.ts` or `.js` files within the project.
+
 ### Backend
 Implemented a custom solution in `data/index.js`
 
@@ -261,8 +287,9 @@ export default {
 ### Authentication
 Implemented a basic "Bearer token" implementation in `authn` module.  Example usage in `pages/login.svelte`,`pages/home.svelte` and `pages/logged-out.svelte`
 
-TODO: dummy up a "user" store to demonstrate loading and clearing of a a user's info as well as "guarded" routes, i.e., routes that require authentication.
-TODO: implement `401` handling in `data/index.js`
+> TODO: dummy up a "user" store to demonstrate loading and clearing of a a user's info as well as "guarded" routes, i.e., routes that require authentication.
+
+> TODO: implement `401` handling in `data/index.js`
 
 
 ### TODO
@@ -271,4 +298,3 @@ TODO: implement `401` handling in `data/index.js`
 - [ ] mobile view
 - [ ] nav menu (with hamburger on mobile)
 - [ ] Dockerize
-- [ ] Typescript

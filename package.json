@@ -2,17 +2,17 @@
   "name": "the-way-svelte",
   "version": "1.0.0",
   "scripts": {
-    "prebuild:dev" : "npm run clean:build",
-    "build:dev"    : "rollup -c -w",
+    "prebuild:dev": "npm run clean:build",
+    "build:dev": "rollup -c -w",
     "prebuild:prod": "npm run clean:build",
-    "build:prod"   : "rollup -c",
-    "clean"        : "run-p -l clean:build clean:deps",
-    "clean:build"  : "rimraf dist/bundle* dist/service-worker* dist/workbox*",
-    "clean:deps"   : "npm prune",
-    "local:dev"    : "run-p -l build:dev serve:http",
-    "local:prod"   : "run-p -l build:prod serve:http",
-    "serve:http"   : "sirv dist --dev --host 0.0.0.0 --port 8080 --single",
-    "serve:https"  : "sirv dist --dev --host 0.0.0.0 --port 8443 --single --http2 --key key.pem --cert cert.pem"
+    "build:prod": "rollup -c",
+    "clean": "run-p -l clean:build clean:deps",
+    "clean:build": "rimraf dist/bundle* dist/service-worker* dist/workbox*",
+    "clean:deps": "npm prune",
+    "local:dev": "run-p -l build:dev serve:http",
+    "local:prod": "run-p -l build:prod serve:http",
+    "serve:http": "sirv dist --dev --host 0.0.0.0 --port 8080 --single",
+    "serve:https": "sirv dist --dev --host 0.0.0.0 --port 8443 --single --http2 --key key.pem --cert cert.pem"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^12.0.0",
@@ -32,6 +32,7 @@
     "sass": "^1.26.7",
     "sirv-cli": "^1.0.1",
     "svelte": "^3.0.0",
-    "svelte-preprocess": "^3.7.4"
+    "svelte-preprocess": "^3.7.4",
+    "typescript": "^3.9.5"
   }
 }
