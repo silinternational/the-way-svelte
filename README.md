@@ -226,7 +226,7 @@ export default {
 ```
 ...also updated the project structure slightly and made the corresponding tweaks to npm scripts in `package.json`
 
-### Service worker
+### Service worker & PWA
 Installed a plugin...
 ```bash
 npm i -D rollup-plugin-workbox
@@ -249,7 +249,7 @@ export default {
   ]
 ```
 
-... then added some favicons in `dist/favicons` and a `manifest.json`
+... then added a `manifest.json` and some favicons in `dist/favicons`
 
 ... then tweaked `dist/index.html` to register the service worker and link in the favicons/manifest.
 ```html
