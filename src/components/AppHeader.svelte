@@ -49,6 +49,7 @@ a:hover, .active {
   <a href={$url('/backend')} class:active={$isActive('/backend')}>backend</a>
   <a href={$url('/errorhandling')} class:active={$isActive('/errorhandling')}>errorhandling</a>
   <a href={$url('/progress')} class:active={$isActive('/progress')}>progress</a>
+  <a href={$url('/mdc')} class:active={$isActive('/mdc')}>mdc</a>
 </header>
 
 <Progress />

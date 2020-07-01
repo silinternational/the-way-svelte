@@ -302,13 +302,42 @@ updated the `rollup.config.js` config
 ### Authentication
 Implemented a basic "Bearer token" implementation in `authn` module.  Example usage in `pages/login.svelte`,`pages/home.svelte` and `pages/logged-out.svelte`
 
-> TODO: dummy up a "user" store to demonstrate loading and clearing of a a user's info as well as "guarded" routes, i.e., routes that require authentication.
+> TODO: dummy up a "user" store to demonstrate loading and clearing of a user's info as well as "guarded" routes, i.e., routes that require authentication.
 
 > TODO: implement `401` handling in `data/index.js`
 
+### Material Design Components (MDC)
+Installed the material design web components...
+```bash
+npm i -D material-components-web
+```
+
+...then updated the `rollup.config.js` config so the MDC styles would be found
+```js
+...
+  postcss({
+    ...
+    use: {
+      sass: {
+        includePaths: ['node_modules']
+      }
+    },
+  }),
+```
+
+...then established a pattern in `components/mdc` for using and wrapping MDC
+
+...then added icons to the `dist/index.html`
+```html
+...
+	<!-- https://material.io/resources/icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
+...
+```
+
+Example usage in `pages/mdc.svelte`
 
 ### TODO
-- [ ] MDC
 - [ ] test
 - [ ] mobile view
 - [ ] nav menu (with hamburger on mobile)
