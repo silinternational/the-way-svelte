@@ -5,6 +5,18 @@
 import './_index.scss'
 import Button from './Button/index.svelte'
 
+loadIcons()
+
 export {
   Button,
+}
+
+// https://material.io/resources/icons
+function loadIcons() {
+  const link = document.createElement('link')
+
+  link.href = 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap'
+  link.rel = 'stylesheet'
+  
+  document.head.appendChild(link)
 }

@@ -15,12 +15,12 @@ function init() {
 }
 
 function loadLib() {
-  const el = document.createElement('script')
+  const script = document.createElement('script')
 
-  el.src = 'https://www.google-analytics.com/analytics.js'
-  el.async = true
+  script.src = 'https://www.google-analytics.com/analytics.js'
+  script.async = true
   
-  document.head.appendChild(el)
+  document.head.appendChild(script)
 }
 
 function trackPageView(page) {
