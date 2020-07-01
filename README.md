@@ -327,14 +327,6 @@ npm i -D material-components-web
 
 ...then established a pattern in `components/mdc` for using and wrapping MDC
 
-...then added icons to the `dist/index.html`
-```html
-...
-	<!-- https://material.io/resources/icons -->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
-...
-```
-
 Example usage in `pages/mdc.svelte`
 
 ### TODO
