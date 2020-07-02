@@ -297,7 +297,10 @@ updated the `rollup.config.js` config
 ```
 
 #### Backend data (offline)
+> TODO:
+
 #### Notifications
+> TODO:
 
 ### Authentication
 Implemented a basic "Bearer token" implementation in `authn` module.  Example usage in `pages/login.svelte`,`pages/home.svelte` and `pages/logged-out.svelte`
