@@ -5,5 +5,12 @@
     "fr": "Le chemin",
     "el": "Ο ΤΡΟΠΟΣ",
     "he": "הדרך"
+  },
+  "UNAUTHORIZED": {
+    "en": "login required",
+    "es": "La manera",
+    "fr": "Le chemin",
+    "el": "Ο ΤΡΟΠΟΣ",
+    "he": "הדרך"
   }
 }

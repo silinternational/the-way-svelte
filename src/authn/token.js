@@ -1,5 +1,5 @@
 export const getSeed = () => localStorage.getItem('seed')
-export const getToken = () => getSeed() + getAccessToken()
+export const getToken = () => getAccessToken() ? getSeed() + getAccessToken() : ''
 export const clear = () => {
   localStorage.removeItem('seed')
   localStorage.removeItem('access-token')

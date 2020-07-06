@@ -1,10 +1,11 @@
 <script>
 import { error, dismiss } from '../error'
+import { isChangingPage } from '@sveltech/routify'
 
 let errContainer = null
 
-$: message = $error.message
 $: errContainer && scrollIntoView(errContainer)
+$: $isChangingPage && $error.message && dismiss()
 
 const scrollIntoView = element => element.scrollIntoView({behavior: 'smooth'})
 </script>
@@ -24,8 +25,8 @@ span small {
 }
 </style>
 
-{#if message}
+{#if $error.message}
   <span bind:this={errContainer}>
-    {message} <small on:click={dismiss}>⨉</small>
+    {$error.message} <small on:click={dismiss}>⨉</small>
   </span>
 {/if}

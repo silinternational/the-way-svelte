@@ -303,11 +303,7 @@ updated the `rollup.config.js` config
 > TODO:
 
 ### Authentication
-Implemented a basic "Bearer token" implementation in `authn` module.  Example usage in `pages/login.svelte`,`pages/home.svelte` and `pages/logged-out.svelte`
-
-> TODO: dummy up a "user" store to demonstrate loading and clearing of a user's info as well as "guarded" routes, i.e., routes that require authentication.
-
-> TODO: implement `401` handling in `data/index.js`
+Implemented a basic "Bearer token" implementation in `authn` module.  Example usage in `pages/login.svelte`,`pages/home.svelte` and `pages/logged-out.svelte`.  Simple `401` handling implemented in `data/index.js`.
 
 ### Material Design Components (MDC)
 Installed the material design web components...

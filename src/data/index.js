@@ -1,6 +1,7 @@
 import { getToken } from '../authn/token'
 import { start, stop } from '../components/progress'
 import { throwError } from '../error'
+import t from '../i18n'
 
 export async function CREATE(uri, body) { return await customFetch('post'  , uri, body) }
 export async function GET   (uri      ) { return await customFetch('get'   , uri      ) }
@@ -49,7 +50,10 @@ async function customFetch(method, uri, body) {
 
   // reminder: fetch does not throw exceptions for non-200 responses (https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
   if (! response.ok) {
-    throwError(response.statusText, response.status)
+    const code = response.status
+    const message = code === 401 ? t(response.statusText) : response.statusText
+
+    throwError(message, code)
   }
 
   return await response.json()

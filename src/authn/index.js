@@ -1,4 +1,5 @@
-import { clear } from './token'
+import { clear as clearToken } from './token'
+import { clear as clearUser, load } from './user'
 
 export const login = () => {
   // normally this would be a POST api/login?client-id={seed} 
@@ -6,6 +7,13 @@ export const login = () => {
   // but I couldn't get this dance to work with httpbin.org/redirect-to because of CORS stuff so
   // I'm just simulating it.
   location = `${location.origin}/home?access-token=817b084g61n5&token-type=Bearer`
+
+  load({
+    id: 1,
+    first: 'Happy',
+    last: 'Gilmore',
+    email: 'happy@example.org',
+  })
 }
 
 export const logout = () => {
@@ -15,5 +23,6 @@ export const logout = () => {
   // I'm just simulating it.
   location = `${location.origin}/logged-out`
 
-  clear()
+  clearToken()
+  clearUser()
 }

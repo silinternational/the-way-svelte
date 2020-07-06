@@ -1,3 +1,17 @@
+<script>
+import user from '../authn/user'
+import { goto } from '@sveltech/routify'
+
+$: stillLoggedIn = !! $user.id
+$: if (stillLoggedIn) {
+  setTimeout(() => $goto('home'), 3000)
+}
+</script>
+
 <p>
-  logged out
+  {#if stillLoggedIn}
+    looks like you're still logged in, sending you home!
+  {:else}
+    logged out
+  {/if}
 </p>
