@@ -47,6 +47,8 @@ async function customFetch(method, uri, body) {
   } finally {
     stop(url)
   }
+  
+  const results = await response.json()
 
   // reminder: fetch does not throw exceptions for non-200 responses (https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
   if (! response.ok) {
@@ -56,7 +58,7 @@ async function customFetch(method, uri, body) {
     throwError(message, code)
   }
 
-  return await response.json()
+  return results
 }
 
 // matches:
