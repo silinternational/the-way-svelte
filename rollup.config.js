@@ -19,7 +19,6 @@ export default {
 		format: 'iife',
 		sourcemap: production,
 	},
-	inlineDynamicImports: true,
 	plugins: [
 		svelte({
 			// enable run-time checks when not in production
@@ -49,7 +48,9 @@ export default {
 				}
 			},
 		}),
-		routify({}),
+		routify({
+			dynamicImports: false,
+		}),
 		dotenv(),
 
 		//           minify     auto-refresh browser on changes
