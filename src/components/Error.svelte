@@ -1,6 +1,6 @@
 <script>
 import { error, dismiss } from '../error'
-import { isChangingPage } from '@sveltech/routify'
+import { isChangingPage } from '@roxi/routify'
 
 let errContainer = null
 

@@ -7,7 +7,7 @@ import postcss from 'rollup-plugin-postcss'
 import svelte from 'rollup-plugin-svelte'
 import { terser } from 'rollup-plugin-terser'
 import { generateSW } from 'rollup-plugin-workbox'
-import { routify } from '@sveltech/routify'
+import routify from '@roxi/routify/plugins/rollup'
 import autoPreprocess from 'svelte-preprocess'
 
 const production = !process.env.ROLLUP_WATCH
@@ -22,7 +22,7 @@ export default {
 	plugins: [
 		svelte({
 			// enable run-time checks when not in production
-			dev: !production,
+			dev: !production, //Todo address warning: [rollup-plugin-svelte] Unknown "dev" option. Please use "compilerOptions" for any Svelte compiler configuration.
 			emitCss: true, // give component style to postcss() for processing
 			preprocess: autoPreprocess(),
 		}),
@@ -48,7 +48,9 @@ export default {
 				}
 			},
 		}),
-		routify({}),
+		routify({
+			dynamicImports: false,
+		}),
 		dotenv(),
 
 		//           minify     auto-refresh browser on changes

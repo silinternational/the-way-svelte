@@ -1,4 +1,4 @@
-import { route } from '@sveltech/routify'
+import { route } from '@roxi/routify'
 
 init()
 

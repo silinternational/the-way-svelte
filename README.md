@@ -89,12 +89,12 @@ plugins: [
 ### Routing
 Installed a plugin...
 ```bash
-npm i -D @sveltech/routify
+npm i -D @roxi/routify
 ```
 
 ...then updated the `rollup.config.js` config
 ```js
-import { routify } from '@sveltech/routify'
+import routify from '@roxi/routify/plugins/rollup'
 ...
 plugins: [
   ...

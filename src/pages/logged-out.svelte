@@ -1,6 +1,6 @@
 <script>
 import user from '../authn/user'
-import { goto } from '@sveltech/routify'
+import { goto } from '@roxi/routify'
 
 $: stillLoggedIn = !! $user.id
 $: if (stillLoggedIn) {
