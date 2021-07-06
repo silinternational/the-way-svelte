@@ -1,5 +1,5 @@
 <script>
-import { Button } from '../components/mdc'
+import { Button } from '@silintl/ui-components'
 
 let showLeading = false
 let showTrailing = false
