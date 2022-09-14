@@ -17,7 +17,7 @@ export default {
 	output: {
 		file: 'dist/bundle.js',
 		format: 'iife',
-		sourcemap: production,
+		sourcemap: !production,
 	},
 	plugins: [
 		svelte({
