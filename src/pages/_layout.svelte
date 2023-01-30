@@ -1,4 +1,5 @@
 <script>
+import { Page } from '@silintl/ui-components'
 import AppFooter from '../components/AppFooter.svelte'
 import AppHeader from '../components/AppHeader.svelte'
 
@@ -16,12 +17,15 @@ main {
 }
 </style>
 
-<AppHeader />
 
-<main>  
-  <slot />
-</main>
+<Page>
 
-<AppFooter />
-
-
+  <AppHeader />
+  
+  <main>  
+    <slot />
+  </main>
+  
+  <AppFooter />
+  
+</Page>
