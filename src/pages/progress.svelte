@@ -1,6 +1,7 @@
 <script>
 import { start, stop } from '../components/progress'
 import { GET } from '../data'
+import { Button } from '@silintl/ui-components'
 
 const buildRandomCallDb = numCalls => {
   const db = []
@@ -55,5 +56,5 @@ li {
 </ul>
 
 <h1>manual</h1>
-<button on:click={on}>on</button>
-<button on:click={off}>off</button>
+<Button on:click={on}>on</Button>
+<Button on:click={off}>off</Button>
