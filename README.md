@@ -1,3 +1,7 @@
+# ARCHIVED: This repo is no longer maintained. #
+
+---
+
 # The way I like my Svelte
 The Svelte starter template I _used to_ wish existed for all of my previous projects!
 
